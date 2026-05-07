@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshav Dadhich — Social Media Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold2: #f0d080;
+  --dark: #05080f;
+  --darker: #020408;
+  --text: #e8e0d0;
+  --muted: #8a8070;
+  --glow: rgba(201,168,76,0.4);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--darker);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+#particles { position:fixed; inset:0; z-index:0; pointer-events:none; }
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);
+  pointer-events:none; z-index:999;
+}
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:0 48px; height:70px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:linear-gradient(180deg,rgba(2,4,8,0.98),transparent);
+  border-bottom:1px solid rgba(201,168,76,0.15);
+}
+.nav-logo {
+  font-family:'Orbitron',sans-serif; font-size:16px; font-weight:900;
+  letter-spacing:3px; color:var(--gold); text-shadow:0 0 20px var(--glow);
+  display:flex; align-items:center; gap:10px;
+}
+.nav-logo::before { content:'⬡'; font-size:20px; animation:hexSpin 4s linear infinite; }
+@keyframes hexSpin { 0%,100%{transform:rotate(0deg) scale(1);} 50%{transform:rotate(180deg) scale(1.1);} }
+.nav-links { display:flex; gap:32px; }
+.nav-links a {
+  color:var(--muted); text-decoration:none; font-size:12px;
+  letter-spacing:3px; text-transform:uppercase; font-family:'Orbitron',sans-serif;
+  transition:all 0.3s; position:relative;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0; right:0;
+  height:1px; background:var(--gold); transform:scaleX(0); transition:transform 0.3s;
+}
+.nav-links a:hover { color:var(--gold); }
+.nav-links a:hover::after { transform:scaleX(1); }
+
+/* HERO */
+.hero {
+  min-height:100vh; display:flex; align-items:center;
+  position:relative; overflow:hidden; padding:80px 48px;
+}
+.hero-grid {
+  position:absolute; inset:0;
+  background-image:linear-gradient(rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.04) 1px,transparent 1px);
+  background-size:60px 60px; animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove { 0%{background-position:0 0;} 100%{background-position:60px 60px;} }
+.hero-slash {
+  position:absolute; right:0; top:0; bottom:0; width:55%;
+  background:linear-gradient(135deg,transparent 0%,rgba(201,168,76,0.03) 40%,rgba(26,58,107,0.15) 60%,rgba(192,57,43,0.08) 100%);
+  clip-path:polygon(15% 0%,100% 0%,100% 100%,0% 100%);
+}
+.hero-glow {
+  position:absolute; width:500px; height:500px;
+  background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);
+  right:10%; top:50%; transform:translateY(-50%);
+  animation:glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse { 0%,100%{opacity:0.6;transform:translateY(-50%) scale(1);} 50%{opacity:1;transform:translateY(-50%) scale(1.15);} }
+.hero-content { position:relative; z-index:2; max-width:700px; }
+.hero-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1px solid var(--gold); padding:6px 20px; margin-bottom:28px;
+  font-family:'Orbitron',sans-serif; font-size:10px; letter-spacing:4px;
+  color:var(--gold); text-transform:uppercase;
+  animation:fadeSlideUp 0.8s ease both; position:relative; overflow:hidden;
+}
+.hero-badge::before {
+  content:''; position:absolute; left:-100%; top:0; bottom:0; width:100%;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2),transparent);
+  animation:shimmer 2s infinite;
+}
+@keyframes shimmer { 0%{left:-100%;} 100%{left:200%;} }
+.hero-badge .dot { width:6px; height:6px; background:var(--gold); border-radius:50%; animation:blink 1.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+.hero h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(64px,10vw,130px); line-height:0.9; letter-spacing:2px;
+  margin-bottom:8px; animation:fadeSlideUp 0.8s 0.1s ease both;
+}
+.hero h1 .name-first { color:var(--text); display:block; }
+.hero h1 .name-last {
+  color:transparent; -webkit-text-stroke:2px var(--gold); display:block;
+  text-shadow:0 0 40px rgba(201,168,76,0.3);
+}
+.hero-role {
+  font-family:'Orbitron',sans-serif; font-size:13px; letter-spacing:6px;
+  color:var(--gold); text-transform:uppercase; margin-bottom:24px;
+  animation:fadeSlideUp 0.8s 0.2s ease both;
+}
+.hero-divider {
+  width:80px; height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin-bottom:24px; animation:fadeSlideUp 0.8s 0.25s ease both;
+}
+.hero p {
+  font-size:17px; color:var(--muted); max-width:480px; line-height:1.8;
+  margin-bottom:40px; font-weight:500; animation:fadeSlideUp 0.8s 0.3s ease both;
+}
+.hero-btns { display:flex; gap:16px; flex-wrap:wrap; animation:fadeSlideUp 0.8s 0.4s ease both; }
+.btn-primary {
+  background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#000;
+  padding:14px 36px; font-family:'Orbitron',sans-serif; font-size:11px;
+  letter-spacing:3px; text-transform:uppercase; text-decoration:none; font-weight:700;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition:all 0.3s; position:relative; overflow:hidden; display:inline-block;
+}
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(201,168,76,0.4); }
+.btn-secondary {
+  border:1px solid rgba(201,168,76,0.4); color:var(--gold);
+  padding:14px 36px; font-family:'Orbitron',sans-serif; font-size:11px;
+  letter-spacing:3px; text-transform:uppercase; text-decoration:none;
+  clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+  transition:all 0.3s; background:rgba(201,168,76,0.05); display:inline-block;
+}
+.btn-secondary:hover { background:rgba(201,168,76,0.12); transform:translateY(-3px); }
+
+/* STATS */
+.stats-bar {
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(201,168,76,0.2); border-bottom:1px solid rgba(201,168,76,0.2);
+  background:rgba(5,8,15,0.95);
+}
+.stat {
+  padding:36px 24px; text-align:center;
+  border-right:1px solid rgba(201,168,76,0.1);
+  position:relative; overflow:hidden; transition:background 0.3s;
+}
+.stat:last-child { border-right:none; }
+.stat::before {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0); transition:transform 0.5s;
+}
+.stat:hover { background:rgba(201,168,76,0.04); }
+.stat:hover::before { transform:scaleX(1); }
+.stat-num {
+  font-family:'Bebas Neue',sans-serif; font-size:52px; color:var(--gold);
+  display:block; line-height:1; text-shadow:0 0 20px rgba(201,168,76,0.5); margin-bottom:4px;
+}
+.stat-label {
+  font-family:'Orbitron',sans-serif; font-size:9px;
+  letter-spacing:3px; color:var(--muted); text-transform:uppercase;
+}
+
+/* SECTIONS */
+.section { padding:100px 48px; position:relative; z-index:2; }
+.section-eyebrow {
+  font-family:'Orbitron',sans-serif; font-size:10px; letter-spacing:5px;
+  color:var(--gold); text-transform:uppercase; margin-bottom:16px;
+  display:flex; align-items:center; gap:16px;
+}
+.section-eyebrow::before,.section-eyebrow::after { content:''; height:1px; background:var(--gold); opacity:0.4; }
+.section-eyebrow::before { width:32px; }
+.section-eyebrow::after { flex:1; }
+.section-title {
+  font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,72px);
+  letter-spacing:2px; line-height:1; margin-bottom:60px; color:var(--text);
+}
+.section-title em { color:transparent; -webkit-text-stroke:1px var(--gold); font-style:normal; }
+
+/* SERVICES */
+.services-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.1);
+}
+.service-card {
+  background:var(--dark); padding:40px 32px;
+  position:relative; overflow:hidden; transition:all 0.4s;
+}
+.service-card::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent);
+  opacity:0; transition:opacity 0.4s;
+}
+.service-card::after {
+  content:''; position:absolute; top:0; left:0;
+  width:3px; height:0; background:var(--gold); transition:height 0.4s;
+}
+.service-card:hover { transform:translateY(-4px); background:#07090f; }
+.service-card:hover::before { opacity:1; }
+.service-card:hover::after { height:100%; }
+.service-num { font-family:'Orbitron',sans-serif; font-size:11px; color:rgba(201,168,76,0.3); letter-spacing:3px; margin-bottom:20px; }
+.service-icon { font-size:36px; margin-bottom:16px; display:block; }
+.service-title { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:2px; color:var(--text); margin-bottom:12px; }
+.service-desc { font-size:14px; color:var(--muted); line-height:1.7; font-weight:500; }
+
+/* PORTFOLIO */
+.portfolio-bg { background:linear-gradient(180deg,var(--darker),rgba(26,58,107,0.06),var(--darker)); }
+.portfolio-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+.portfolio-card {
+  background:var(--dark); border:1px solid rgba(201,168,76,0.12);
+  position:relative; overflow:hidden; transition:all 0.4s;
+  text-decoration:none; color:inherit; display:block;
+}
+.portfolio-card:hover {
+  transform:translateY(-8px) scale(1.01);
+  border-color:var(--gold);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6),0 0 30px rgba(201,168,76,0.15);
+}
+.portfolio-img {
+  height:220px; display:flex; align-items:center; justify-content:center;
+  font-size:56px; position:relative; overflow:hidden;
+}
+.portfolio-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 60%,var(--dark));
+}
+.p-img-1 { background:linear-gradient(135deg,#0d1b2a,#1a3a6b); }
+.p-img-2 { background:linear-gradient(135deg,#1a0a00,#3d1500,#c9a84c22); }
+.p-img-3 { background:linear-gradient(135deg,#0a0a1a,#1a1a3d); }
+.p-corner { position:absolute; top:12px; right:12px; width:20px; height:20px; border-top:2px solid var(--gold); border-right:2px solid var(--gold); opacity:0.6; z-index:1; }
+.p-corner-bl { position:absolute; bottom:12px; left:12px; width:20px; height:20px; border-bottom:2px solid var(--gold); border-left:2px solid var(--gold); opacity:0.6; z-index:1; }
+.portfolio-info { padding:28px; }
+.portfolio-tag { font-family:'Orbitron',sans-serif; font-size:9px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:8px; }
+.portfolio-name { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:2px; margin-bottom:8px; }
+.portfolio-result { font-size:13px; color:var(--muted); line-height:1.6; font-weight:500; }
+.portfolio-result strong { color:var(--gold2); }
+
+/* PLATFORMS */
+.platforms-section {
+  padding:60px 48px; border-top:1px solid rgba(201,168,76,0.1);
+  border-bottom:1px solid rgba(201,168,76,0.1); background:rgba(201,168,76,0.02);
+  position:relative; z-index:2;
+}
+.platforms-label {
+  text-align:center; font-family:'Orbitron',sans-serif; font-size:10px;
+  letter-spacing:5px; color:var(--muted); text-transform:uppercase; margin-bottom:40px;
+}
+.platforms-list { display:flex; justify-content:center; gap:48px; flex-wrap:wrap; }
+.platform-item { display:flex; flex-direction:column; align-items:center; gap:10px; opacity:0.35; transition:all 0.3s; }
+.platform-item:hover { opacity:1; transform:translateY(-4px); }
+.platform-item span:first-child { font-size:32px; }
+.platform-item span:last-child { font-family:'Orbitron',sans-serif; font-size:9px; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
+
+/* CONTACT */
+.contact-section {
+  padding:100px 48px; display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:start; position:relative; z-index:2;
+}
+.contact-text h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(40px,5vw,72px); line-height:1; letter-spacing:2px; margin-bottom:20px; }
+.contact-text h2 em { color:var(--gold); font-style:normal; text-shadow:0 0 30px rgba(201,168,76,0.4); }
+.contact-text p { color:var(--muted); font-size:16px; line-height:1.8; font-weight:500; }
+.contact-info { display:flex; flex-direction:column; gap:12px; }
+.contact-item {
+  display:flex; align-items:center; gap:20px; padding:20px 24px;
+  border:1px solid rgba(201,168,76,0.12); text-decoration:none; color:var(--text);
+  transition:all 0.3s; position:relative; overflow:hidden; background:var(--dark);
+  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));
+}
+.contact-item::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--gold); transform:scaleY(0); transition:transform 0.3s;
+}
+.contact-item:hover { border-color:rgba(201,168,76,0.4); background:#07090f; transform:translateX(8px); }
+.contact-item:hover::before { transform:scaleY(1); }
+.contact-icon { font-size:22px; width:36px; text-align:center; }
+.contact-label { font-family:'Orbitron',sans-serif; font-size:9px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:3px; }
+.contact-val { font-size:15px; font-weight:600; }
+
+/* FOOTER */
+footer {
+  border-top:1px solid rgba(201,168,76,0.15); padding:32px 48px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:16px; position:relative; z-index:2;
+  background:rgba(2,4,8,0.98);
+}
+.footer-logo { font-family:'Orbitron',sans-serif; font-size:14px; font-weight:900; color:var(--gold); letter-spacing:3px; text-shadow:0 0 20px rgba(201,168,76,0.4); }
+footer p { font-size:12px; color:var(--muted); font-family:'Orbitron',sans-serif; letter-spacing:2px; }
+.footer-status { display:flex; align-items:center; gap:8px; font-family:'Orbitron',sans-serif; font-size:10px; color:var(--gold); letter-spacing:2px; }
+.footer-status .dot { width:6px; height:6px; background:#00ff88; border-radius:50%; animation:blink 1.5s infinite; box-shadow:0 0 8px #00ff88; }
+
+@keyframes fadeSlideUp { from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+.reveal { opacity:0; transform:translateY(50px); transition:all 0.8s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--darker); }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px; }
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .hero{padding:90px 20px 60px;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .stat{border-bottom:1px solid rgba(201,168,76,0.1);}
+  .section{padding:60px 20px;}
+  .contact-section{grid-template-columns:1fr;padding:60px 20px;gap:40px;}
+  footer{padding:24px 20px;}
+  .platforms-section{padding:40px 20px;}
+  .platforms-list{gap:24px;}
+}
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+
+<nav>
+  <div class="nav-logo">KESHAV.D</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-slash"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> Available For Projects</div>
+    <h1>
+      <span class="name-first">KESHAV</span>
+      <span class="name-last">DADHICH</span>
+    </h1>
+    <div class="hero-role">⬡ Social Media Manager ⬡</div>
+    <div class="hero-divider"></div>
+    <p>Aapke brand ko digital duniya mein <strong style="color:var(--gold2)">legendary</strong> banata hoon. Engagement badhao, audience grow karo, results dekho.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Kaam Karein Saath ↗</a>
+      <a href="#work" class="btn-secondary">Portfolio Dekho</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar reveal">
+  <div class="stat">
+    <span class="stat-num" data-target="50" data-suffix="+">0+</span>
+    <span class="stat-label">Clients Served</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="2" data-suffix="M+">0M+</span>
+    <span class="stat-label">Total Reach</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="300" data-suffix="%">0%</span>
+    <span class="stat-label">Avg Growth</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="3" data-suffix="yr">0yr</span>
+    <span class="stat-label">Experience</span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="section-eyebrow">What I Do</div>
+  <h2 class="section-title reveal">MERE <em>SERVICES</em></h2>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="service-num">01</div><span class="service-icon">📱</span><div class="service-title">Content Creation</div><p class="service-desc">Eye-catching posts, reels aur stories jo audience ko rok de. Har platform ke liye tailored content.</p></div>
+    <div class="service-card"><div class="service-num">02</div><span class="service-icon">📈</span><div class="service-title">Growth Strategy</div><p class="service-desc">Data-driven strategies se followers aur engagement organically badhao. Real results, no shortcuts.</p></div>
+    <div class="service-card"><div class="service-num">03</div><span class="service-icon">🎯</span><div class="service-title">Brand Identity</div><p class="service-desc">Brand ki unique voice aur visual identity establish karo social media par. Memorable presence banao.</p></div>
+    <div class="service-card"><div class="service-num">04</div><span class="service-icon">💬</span><div class="service-title">Community Management</div><p class="service-desc">Comments, DMs aur community engage karo. Loyal fanbase banao jo brand ka word spread kare.</p></div>
+    <div class="service-card"><div class="service-num">05</div><span class="service-icon">📊</span><div class="service-title">Analytics & Reports</div><p class="service-desc">Monthly detailed reports — kya kaam kiya, kya nahi, aur aage kya karna hai. Full transparency.</p></div>
+    <div class="service-card"><div class="service-num">06</div><span class="service-icon">🤝</span><div class="service-title">Influencer Outreach</div><p class="service-desc">Sahi influencers ke saath collaborations setup karo aur reach exponentially badhao.</p></div>
+  </div>
+</section>
+
+<div class="platforms-section reveal">
+  <p class="platforms-label">⬡ Platforms Jahan Main Kaam Karta Hoon ⬡</p>
+  <div class="platforms-list">
+    <div class="platform-item"><span>📸</span><span>Instagram</span></div>
+    <div class="platform-item"><span>▶️</span><span>YouTube</span></div>
+    <div class="platform-item"><span>🎵</span><span>TikTok</span></div>
+    <div class="platform-item"><span>👥</span><span>Facebook</span></div>
+    <div class="platform-item"><span>💼</span><span>LinkedIn</span></div>
+    <div class="platform-item"><span>🐦</span><span>Twitter/X</span></div>
+  </div>
+</div>
+
+<section class="section portfolio-bg" id="work">
+  <div class="section-eyebrow">Portfolio</div>
+  <h2 class="section-title reveal">RECENT <em>WORK</em></h2>
+  <div class="portfolio-grid reveal">
+    <a href="https://www.instagram.com/maharani_paridhan_sujangarh_/" target="_blank" class="portfolio-card">
+      <div class="portfolio-img p-img-2">
+        👗
+        <div class="p-corner"></div>
+        <div class="p-corner-bl"></div>
+      </div>
+      <div class="portfolio-info">
+        <div class="portfolio-tag">Clothing Brand · Sujangarh</div>
+        <div class="portfolio-name">Maharani Paridhan <span style="color:var(--gold);font-size:18px;">↗</span></div>
+        <p class="portfolio-result">Instagram <strong>46K followers</strong> · 663 posts · Views <strong>16K–62K</strong> per reel</p>
+      </div>
+    </a>
+    <div class="portfolio-card" style="cursor:default;">
+      <div class="portfolio-img p-img-1">🚀<div class="p-corner"></div><div class="p-corner-bl"></div></div>
+      <div class="portfolio-info">
+        <div class="portfolio-tag">Coming Soon</div>
+        <div class="portfolio-name">Next Client</div>
+        <p class="portfolio-result">Aapka brand bhi yahan ho sakta hai — <strong>contact karo!</strong></p>
+      </div>
+    </div>
+    <div class="portfolio-card" style="cursor:default;">
+      <div class="portfolio-img p-img-3">✨<div class="p-corner"></div><div class="p-corner-bl"></div></div>
+      <div class="portfolio-info">
+        <div class="portfolio-tag">Coming Soon</div>
+        <div class="portfolio-name">Next Client</div>
+        <p class="portfolio-result">Aapka brand bhi yahan ho sakta hai — <strong>contact karo!</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-text reveal">
+    <div class="section-eyebrow">Contact</div>
+    <h2>BAAT KARTE<br>HAIN <em>AAJ</em></h2>
+    <p style="margin-top:16px;">Aapke brand ko next level par le jaane ke liye ready hoon. Free consultation ke liye abhi contact karo!</p>
+  </div>
+  <div class="contact-info reveal">
+    <a href="mailto:keshavdadhich550@gmail.com" class="contact-item">
+      <span class="contact-icon">📧</span>
+      <div><div class="contact-label">Email</div><div class="contact-val">keshavdadhich550@gmail.com</div></div>
+    </a>
+    <a href="https://instagram.com/keshavdadhich__" target="_blank" class="contact-item">
+      <span class="contact-icon">📸</span>
+      <div><div class="contact-label">Instagram</div><div class="contact-val">@keshavdadhich__</div></div>
+    </a>
+    <a href="https://wa.me/918239952008" target="_blank" class="contact-item">
+      <span class="contact-icon">💬</span>
+      <div><div class="contact-label">WhatsApp</div><div class="contact-val">+91 82399 52008</div></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">KESHAV.D</div>
+  <p>© 2026 KESHAV DADHICH</p>
+  <div class="footer-status"><span class="dot"></span> Available for Work</div>
+</footer>
+
+<script>
+// PARTICLES
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random()*W; this.y = Math.random()*H;
+    this.size = Math.random()*1.5+0.3;
+    this.speedX = (Math.random()-0.5)*0.3; this.speedY = (Math.random()-0.5)*0.3;
+    this.opacity = Math.random()*0.5+0.1; this.gold = Math.random()>0.7;
+  }
+  update() {
+    this.x+=this.speedX; this.y+=this.speedY;
+    if(this.x<0||this.x>W||this.y<0||this.y>H) this.reset();
+  }
+  draw() {
+    ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+    ctx.fillStyle = this.gold ? `rgba(201,168,76,${this.opacity})` : `rgba(200,210,230,${this.opacity*0.4})`;
+    ctx.fill();
+  }
+}
+for(let i=0;i<120;i++) particles.push(new Particle());
+function animParticles() {
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p=>{p.update();p.draw();});
+  particles.forEach((a,i)=>{
+    particles.slice(i+1).forEach(b=>{
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<100){
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+        ctx.strokeStyle=`rgba(201,168,76,${0.06*(1-d/100)})`; ctx.lineWidth=0.5; ctx.stroke();
+      }
+    });
+  });
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{ if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*80); });
+},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+
+// COUNTER
+function countUp(el,target,suffix){
+  let val=0; const step=target/(2000/16);
+  const t=setInterval(()=>{
+    val=Math.min(val+step,target);
+    el.textContent=Math.floor(val)+suffix;
+    if(val>=target) clearInterval(t);
+  },16);
+}
+const sObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    document.querySelectorAll('.stat-num').forEach(el=>countUp(el,+el.dataset.target,el.dataset.suffix));
+    sObs.disconnect();
+  }
+},{threshold:0.5});
+sObs.observe(document.querySelector('.stats-bar'));
+</script>
+</body>
+</html>
